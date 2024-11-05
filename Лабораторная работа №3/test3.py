@@ -1,26 +1,26 @@
 # TODO  Напишите функцию count_letters
-def count_letters(text):
-    number_of_letters = {}
+def count_letters(text): #Функция для подсчета букв
+    number_of_letters = {} #Словарь для каждой из букв, будем туда закидывать буквы и соответсвующие им значения
 
-    for char in text:
-        lower_char = char.lower()
+    for char in text: #С помощю цикла берем символ
+        lower_char = char.lower() #Переводим его в нижний регистр для правильного учета
 
-        if lower_char.isalpha():
-            if lower_char in number_of_letters:
-                number_of_letters[lower_char] += 1
+        if lower_char.isalpha(): #Если символ - букваЮ, то
+            if lower_char in number_of_letters: #Если буква есть в словаре, то
+                number_of_letters[lower_char] += 1 # Прибавляем ее количество на один
             else:
-                number_of_letters[lower_char] = 1
+                number_of_letters[lower_char] = 1 #Если нет -начинаем учет количества с единицы 
 
     return number_of_letters
 
 
 # TODO Напишите функцию calculate_frequency
 def calculate_frequency(number_of_letters):
-    total_letters = sum(number_of_letters.values())
+    total_letters = sum(number_of_letters.values()) #Суммируем количество букв
 
-    frequency = {}
+    frequency = {} #Заводим новый словарь для частоты букв
 
-    for letter, count in number_of_letters.items():
+    for letter, count in number_of_letters.items(): #Для буквы берем ее количество и делим на общее количество и записываем в новый словарь
         frequency[letter] = round(count / total_letters, 2)
 
     return frequency
